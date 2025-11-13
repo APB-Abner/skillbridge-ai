@@ -1,0 +1,15 @@
+com/skillbridgeai/domain/Curso.class
+com/skillbridgeai/domain/Trilha.class
+com/skillbridgeai/dao/RecomendacaoDAO.class
+com/skillbridgeai/dao/MatriculaDAO.class
+com/skillbridgeai/service/RecomendadorService.class
+com/skillbridgeai/dao/UsuarioDAO.class
+com/skillbridgeai/domain/Skill.class
+com/skillbridgeai/domain/Matricula.class
+com/skillbridgeai/domain/Usuario.class
+com/skillbridgeai/dao/CursoDAO.class
+com/skillbridgeai/domain/Recomendacao.class
+com/skillbridgeai/service/ProgressoService.class
+com/skillbridgeai/dao/TrilhaDAO.class
+com/skillbridgeai/domain/Mentoria.class
+com/skillbridgeai/App.class
