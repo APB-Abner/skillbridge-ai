@@ -8,9 +8,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.web.server.ResponseStatusException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
@@ -53,11 +55,14 @@ class UserControllerTest {
     @Test
     void create_409_duplicado() throws Exception {
         var req = new UserRequest("Abner","abner@fiap.com","12345678901");
-        doThrow(new IllegalStateException("Duplicado")).when(service).create(any());
+
+        doThrow(new ResponseStatusException(HttpStatus.CONFLICT, "CONFLICT"))
+                .when(service).create(any());
 
         mvc.perform(post("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(om.writeValueAsString(req)))
                 .andExpect(status().isConflict());
     }
+
 }

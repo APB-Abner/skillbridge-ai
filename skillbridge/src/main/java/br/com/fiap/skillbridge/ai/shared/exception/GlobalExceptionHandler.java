@@ -1,11 +1,12 @@
 package br.com.fiap.skillbridge.ai.shared.exception;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.*;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
-import jakarta.servlet.http.HttpServletRequest;
 import java.time.Instant;
 import java.util.*;
 
@@ -35,10 +36,26 @@ public class GlobalExceptionHandler {
         ));
     }
 
+    // 👇 NOVO: respeita o status da ResponseStatusException (409, 403, etc.)
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<ApiError> handleResponseStatus(ResponseStatusException ex, HttpServletRequest req){
+        HttpStatusCode status = ex.getStatusCode();
+
+        return ResponseEntity.status(status).body(new ApiError(
+                Instant.now(),
+                status.value(),
+                status.toString(),          // ex.: "409 CONFLICT"
+                ex.getReason(),             // ex.: "CONFLICT" ou tua mensagem
+                req.getRequestURI(),
+                List.of()
+        ));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneric(Exception ex, HttpServletRequest req){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApiError(
                 Instant.now(), 500, "Internal Server Error", ex.getMessage(), req.getRequestURI(), List.of()
         ));
     }
+
 }

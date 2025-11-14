@@ -1,48 +1,150 @@
 package br.com.fiap.skillbridge.ai.shared.exception;
 
-import br.com.fiap.skillbridge.ai.user.controller.UserController;
-import br.com.fiap.skillbridge.ai.user.dto.UserRequest;
-import br.com.fiap.skillbridge.ai.user.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.context.annotation.Import;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.server.ResponseStatusException;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import java.util.List;
 
-@AutoConfigureMockMvc(addFilters = false)
-@WebMvcTest(UserController.class)
-@Import(GlobalExceptionHandler.class)
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 class GlobalExceptionHandlerTest {
-    @Autowired MockMvc mvc;
-    @Autowired ObjectMapper om;
-    @MockitoBean UserService service;
 
-    @Test
-    void notFound_mapeado_404() throws Exception {
-        Mockito.when(service.create(any())).thenThrow(new NotFoundException("User not found"));
-        String body = om.writeValueAsString(new UserRequest("A","a@a.com","12345678901"));
-        mvc.perform(post("/api/v1/usuarios")
-                        .contentType(MediaType.APPLICATION_JSON).content(body))
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.error").value("Not Found"));
+    GlobalExceptionHandler handler = new GlobalExceptionHandler();
+
+    private HttpServletRequest mockRequest(String uri) {
+        HttpServletRequest req = mock(HttpServletRequest.class);
+        when(req.getRequestURI()).thenReturn(uri);
+        return req;
     }
 
     @Test
-    void validation_400_fieldErrors() throws Exception {
-        // email inválido + cpf tamanho errado → Bean Validation
-        String body = om.writeValueAsString(new UserRequest("Abner","inv","123"));
-        mvc.perform(post("/api/v1/usuarios")
-                        .contentType(MediaType.APPLICATION_JSON).content(body))
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.fieldErrors").isArray());
+    void handleValidation_retorna400_e_listaDeCampos() {
+        // given
+        BindingResult bindingResult = mock(BindingResult.class);
+        var fieldError = new FieldError("user", "email", "must not be blank");
+        when(bindingResult.getFieldErrors()).thenReturn(List.of(fieldError));
+
+        var ex = new MethodArgumentNotValidException(null, bindingResult);
+        var req = mockRequest("/api/v1/usuarios");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleValidation(ex, req);
+
+        // then
+        assertEquals(HttpStatus.BAD_REQUEST, resp.getStatusCode());
+        assertNotNull(resp.getBody());
+        ApiError body = resp.getBody();
+        assertEquals(400, body.status());
+        assertEquals("Validation failed", body.error());
+        assertEquals("/api/v1/usuarios", body.path());
+        assertEquals(1, body.fieldErrors().size());
+        assertTrue(body.fieldErrors().getFirst().contains("email"));
     }
+
+    @Test
+    void handleNotFound_retorna404() {
+        // given
+        var ex = new NotFoundException("Usuário não encontrado.");
+        var req = mockRequest("/api/v1/usuarios/99");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleNotFound(ex, req);
+
+        // then
+        assertEquals(HttpStatus.NOT_FOUND, resp.getStatusCode());
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        assertEquals(404, body.status());
+        assertEquals("Not Found", body.error());
+        assertEquals("Usuário não encontrado.", body.message());
+        assertEquals("/api/v1/usuarios/99", body.path());
+    }
+
+    @Test
+    void handleBadRequest_IllegalArgument_retorna400() {
+        // given
+        var ex = new IllegalArgumentException("E-mail já cadastrado.");
+        var req = mockRequest("/api/v1/usuarios");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleBadRequest(ex, req);
+
+        // then
+        assertEquals(HttpStatus.BAD_REQUEST, resp.getStatusCode());
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        assertEquals(400, body.status());
+        assertEquals("Bad Request", body.error());
+        assertEquals("E-mail já cadastrado.", body.message());
+    }
+
+    @Test
+    void handleBadRequest_DataIntegrity_retorna400() {
+        // given
+        var ex = new DataIntegrityViolationException("Violação de integridade");
+        var req = mockRequest("/api/v1/usuarios");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleBadRequest(ex, req);
+
+        // then
+        assertEquals(HttpStatus.BAD_REQUEST, resp.getStatusCode());
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        assertEquals(400, body.status());
+        assertEquals("Bad Request", body.error());
+        assertEquals("Violação de integridade", body.message());
+    }
+
+    @Test
+    void handleGeneric_retorna500() {
+        // given
+        var ex = new Exception("Erro inesperado");
+        var req = mockRequest("/alguma-coisa");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleGeneric(ex, req);
+
+        // then
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, resp.getStatusCode());
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        assertEquals(500, body.status());
+        assertEquals("Internal Server Error", body.error());
+        assertEquals("Erro inesperado", body.message());
+        assertEquals("/alguma-coisa", body.path());
+        assertNotNull(body.timestamp());
+    }
+
+    @Test
+    void handleResponseStatus_respeitaStatusDaExcecao() {
+        // given
+        var ex  = new ResponseStatusException(HttpStatus.CONFLICT, "CONFLICT");
+        var req = mockRequest("/api/v1/usuarios");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleResponseStatus(ex, req);
+
+        // then
+        assertEquals(HttpStatus.CONFLICT, resp.getStatusCode());
+
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        // se ApiError for record, usa body.status() / body.error() / body.message()
+        // se for classe, troca pra getStatus(), getError(), getMessage()
+        assertEquals(409, body.status());
+        assertEquals("409 CONFLICT", body.error());
+        assertEquals("CONFLICT", body.message());
+        assertEquals("/api/v1/usuarios", body.path());
+    }
+
+
 }
