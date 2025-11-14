@@ -1,0 +1,216 @@
+# SkillBridge.AI — Spring Boot (Layered) — GS2025 Compliant
+
+Monólito **Spring Boot 3.5.x + Java 21** com arquitetura **em camadas (Controller → Service → Repository)**, conforme a GS 2025. Banco **H2 (dev)** e **MySQL (prod)**; **Swagger/OpenAPI**, **Bean Validation**, **tratamento centralizado de erros**, **seeds (schema.sql + data.sql)** e **testes (JUnit 5 + Mockito)** com alvo de **≥80%**.
+
+---
+
+## Como rodar (dev)
+
+1. `mvn spring-boot:run -Dspring-boot.run.profiles=dev`
+2. Swagger: `http://localhost:8080/swagger-ui.html`
+3. H2 Console: `http://localhost:8080/h2-console` (JDBC: `jdbc:h2:mem:skillbridge`, user: `sa`, senha em branco)
+
+## Estrutura de pastas
+
+```
+skillbridge-ai/
+  pom.xml
+  README.md
+  src/main/java/br/fiap/skillbridgeai/
+    SkillbridgeAiApplication.java
+    shared/
+      exception/GlobalExceptionHandler.java
+      exception/ApiError.java
+    user/
+      controller/UserController.java
+      service/UserService.java
+      repository/UserRepository.java
+      model/User.java
+      dto/UserRequest.java
+      dto/UserResponse.java
+    trilha/
+      controller/TrilhaController.java
+      service/TrilhaService.java
+      repository/TrilhaRepository.java
+      model/Trilha.java
+      dto/TrilhaRequest.java
+      dto/TrilhaResponse.java
+    matricula/
+      controller/MatriculaController.java
+      service/MatriculaService.java
+      repository/MatriculaRepository.java
+      model/Matricula.java
+      dto/MatriculaRequest.java
+      dto/MatriculaResponse.java
+  src/main/resources/
+    application.yml
+    application-dev.yml
+    application-prod-mysql.yml
+    schema.sql
+    data.sql
+  src/test/java/br/fiap/skillbridgeai/
+    user/UserServiceTest.java
+    trilha/TrilhaServiceTest.java
+    matricula/MatriculaServiceTest.java
+    user/UserControllerTest.java
+```
+
+---
+
+## `pom.xml` (principais deps)
+
+* spring-boot-starter-web
+* spring-boot-starter-validation
+* spring-boot-starter-data-jpa
+* spring-boot-starter-security (básico p/ proteger e testar)
+* springdoc-openapi-starter-webmvc-ui (Swagger)
+* h2 (runtime dev)
+* mysql-connector-j (runtime prod)
+* junit-jupiter, mockito-core (test)
+
+---
+
+## `application.yml` (perfil default)
+
+```yaml
+spring:
+  application.name: skillbridge-ai
+  jpa:
+    open-in-view: false
+    hibernate.ddl-auto: none  # usamos schema.sql
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:skillbridge;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  sql.init.mode: always  # garante execução de schema.sql/data.sql
+server.port: 8080
+```
+
+### `application-dev.yml`
+
+```yaml
+spring:
+  config.activate.on-profile: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:skillbridge;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+```
+
+### `application-prod-mysql.yml`
+
+```yaml
+spring:
+  config.activate.on-profile: prod-mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/skillbridge?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: validate
+```
+
+---
+
+## Modelos (resumo)
+
+```java
+// user/model/User.java
+@Entity @Table(name="users")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class User {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @NotBlank @Size(max=150) private String nome;
+  @Email @NotBlank @Column(unique = true) private String email;
+}
+```
+
+```java
+// trilha/model/Trilha.java
+@Entity @Table(name="trilhas")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class Trilha {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @NotBlank @Size(max=180) private String titulo;
+  @Size(max=800) private String descricao;
+  private boolean ativa = true;
+}
+```
+
+```java
+// matricula/model/Matricula.java
+@Entity @Table(name="matriculas", uniqueConstraints = @UniqueConstraint(columnNames={"user_id","trilha_id"}))
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class Matricula {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @ManyToOne(optional=false) @JoinColumn(name="user_id") private User user;
+  @ManyToOne(optional=false) @JoinColumn(name="trilha_id") private Trilha trilha;
+  @PastOrPresent private LocalDateTime criadaEm;
+}
+```
+
+---
+
+## Controllers (assinaturas)
+
+```
+POST   /api/v1/usuarios            → cria usuário
+GET    /api/v1/usuarios            → lista
+GET    /api/v1/usuarios/{id}       → detalha
+PUT    /api/v1/usuarios/{id}       → atualiza
+DELETE /api/v1/usuarios/{id}       → remove
+
+POST   /api/v1/trilhas             → cria trilha
+GET    /api/v1/trilhas             → lista
+GET    /api/v1/trilhas/{id}        → detalha
+PUT    /api/v1/trilhas/{id}        → atualiza
+DELETE /api/v1/trilhas/{id}        → remove
+
+POST   /api/v1/matriculas          → matricula user em trilha
+GET    /api/v1/matriculas          → lista matrículas (filtros opcionais: userId, trilhaId)
+DELETE /api/v1/matriculas/{id}     → cancela matrícula
+```
+
+---
+
+## Tratamento centralizado de erros
+
+`GlobalExceptionHandler` mapeia `MethodArgumentNotValidException`, `EntityNotFoundException`, `DataIntegrityViolationException` e retorna `ApiError {timestamp, status, error, message, path}`.
+
+---
+
+## Seeds (`schema.sql` + `data.sql`)
+
+**schema.sql** cria as tabelas `users`, `trilhas`, `matriculas` (compatível H2/MySQL).
+**data.sql** insere 3 usuários, 3 trilhas e 2 matrículas de exemplo.
+
+---
+
+## README (itens)
+
+* Objetivo/escopo, como rodar, variáveis de ambiente (MySQL), endpoints (tabela), exemplos cURL/Swagger, cobertura de testes, créditos (integrantes).
+
+---
+
+## Testes (alvo ≥80%)
+
+* **Service**: Mockito para `UserService`, `TrilhaService`, `MatriculaService` (cenários happy path + erros de validação/duplicidade).
+* **Controller**: `@WebMvcTest` com MockMvc para verificar status/JSON/validações.
+* **Repository** (opcional): testes slice com H2.
+
+---
+
+## Roadmap curto
+
+1. Implementar **CRUD Usuário** e **CRUD Trilha** (ponta a ponta).
+2. Implementar **Matrícula** (POST/GET/DELETE).
+3. Ligar Swagger + seeds.
+4. Escrever testes (começar por Services).
+5. Escrever README com exemplos.
+
+> Pronto para gerar os arquivos agora (controllers/services/repos/DTOs, schema/data.sql e testes-base).
