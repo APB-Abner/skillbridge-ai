@@ -1,0 +1,461 @@
+# SkillBridge.AI — Spring Boot DDD Skeleton (MVP)
+
+> Monólito modular em **Spring Boot 3 + DDD + Hexagonal (Ports & Adapters)**. Java 21. Perfis `dev` (H2) e `prod` (MySQL/Oracle). Swagger/OpenAPI, Security básico, Flyway.
+
+---
+
+## Como rodar (dev)
+
+1. `mvn spring-boot:run -Dspring-boot.run.profiles=dev`
+2. Swagger: `http://localhost:8080/swagger-ui.html`
+3. H2 Console: `http://localhost:8080/h2-console` (JDBC: `jdbc:h2:mem:skillbridge`, user: `sa`, senha vazia)
+
+## Estrutura de pastas
+
+```
+skillbridge-ai/
+  pom.xml
+  src/main/java/br/fiap/skillbridgeai/
+    SkillbridgeAiApplication.java
+    shared/
+      api/exception/GlobalExceptionHandler.java
+      domain/DomainException.java
+    account/
+      api/UserController.java
+      application/UserService.java
+      domain/User.java
+      domain/Email.java
+      infra/UserRepository.java
+    learning/
+      api/CourseController.java
+      application/CourseService.java
+      domain/Course.java
+      infra/CourseRepository.java
+    security/
+      SecurityConfig.java
+  src/main/resources/
+    application.yml
+    application-dev.yml
+    application-prod.yml
+    db/migration/V1__init.sql
+```
+
+---
+
+## `pom.xml`
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.fiap</groupId>
+  <artifactId>skillbridge-ai</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SkillBridge.AI</name>
+  <description>GS2025 - SkillBridge.AI - Spring Boot DDD</description>
+  <properties>
+    <java.version>21</java.version>
+    <spring.boot.version>3.3.4</spring.boot.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>2.6.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc11</artifactId>
+      <version>23.4.0.24.05</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
+---
+
+## `application.yml`
+
+```yaml
+spring:
+  application:
+    name: skillbridge-ai
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:skillbridge;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+server:
+  port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:skillbridge;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod-mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/skillbridge?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod-oracle
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    username: SKILLBRIDGE
+    password: SKILLBRIDGE
+```
+
+---
+
+## Bootstrap
+
+```java
+// src/main/java/br/fiap/skillbridgeai/SkillbridgeAiApplication.java
+package br.fiap.skillbridgeai;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SkillbridgeAiApplication {
+  public static void main(String[] args) {
+    SpringApplication.run(SkillbridgeAiApplication.class, args);
+  }
+}
+```
+
+---
+
+## Domínio (Account)
+
+```java
+// src/main/java/br/fiap/skillbridgeai/account/domain/Email.java
+package br.fiap.skillbridgeai.account.domain;
+import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+@Embeddable
+public class Email {
+  @Email @NotBlank
+  private String value;
+  protected Email() {}
+  public Email(String value) { this.value = value; }
+  public String getValue() { return value; }
+}
+```
+
+```java
+// src/main/java/br/fiap/skillbridgeai/account/domain/User.java
+package br.fiap.skillbridgeai.account.domain;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+@Entity @Table(name = "users")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class User {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @NotBlank private String name;
+  @Embedded private Email email;
+  @NotBlank private String role; // USER/ADMIN
+}
+```
+
+### Repositório
+
+```java
+// src/main/java/br/fiap/skillbridgeai/account/infra/UserRepository.java
+package br.fiap.skillbridgeai.account.infra;
+import br.fiap.skillbridgeai.account.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+  Optional<User> findByEmail_Value(String email);
+}
+```
+
+### Serviço (Application)
+
+```java
+// src/main/java/br/fiap/skillbridgeai/account/application/UserService.java
+package br.fiap.skillbridgeai.account.application;
+import br.fiap.skillbridgeai.account.domain.Email;
+import br.fiap.skillbridgeai.account.domain.User;
+import br.fiap.skillbridgeai.account.infra.UserRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+@Service
+public class UserService {
+  private final UserRepository repo;
+  public UserService(UserRepository repo) { this.repo = repo; }
+
+  @Transactional
+  public User create(String name, String email, String role){
+    return repo.save(User.builder().name(name).email(new Email(email)).role(role).build());
+  }
+  public List<User> list(){ return repo.findAll(); }
+}
+```
+
+### Controller (API)
+
+```java
+// src/main/java/br/fiap/skillbridgeai/account/api/UserController.java
+package br.fiap.skillbridgeai.account.api;
+import br.fiap.skillbridgeai.account.application.UserService;
+import br.fiap.skillbridgeai.account.domain.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/users")
+@Validated
+public class UserController {
+  private final UserService service;
+  public UserController(UserService service){ this.service = service; }
+
+  @PostMapping @ResponseStatus(HttpStatus.CREATED)
+  public User create(@RequestParam @NotBlank String name,
+                     @RequestParam @Email String email,
+                     @RequestParam(defaultValue = "USER") String role){
+    return service.create(name, email, role);
+  }
+
+  @GetMapping
+  public List<User> list(){ return service.list(); }
+}
+```
+
+---
+
+## Domínio (Learning — exemplo mínimo)
+
+```java
+// src/main/java/br/fiap/skillbridgeai/learning/domain/Course.java
+package br.fiap.skillbridgeai.learning.domain;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+@Entity @Table(name = "courses")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+public class Course {
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @NotBlank private String name;
+  private String description;
+  private boolean active = true;
+}
+```
+
+```java
+// src/main/java/br/fiap/skillbridgeai/learning/infra/CourseRepository.java
+package br.fiap.skillbridgeai.learning.infra;
+import br.fiap.skillbridgeai.learning.domain.Course;
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface CourseRepository extends JpaRepository<Course, Long> {}
+```
+
+```java
+// src/main/java/br/fiap/skillbridgeai/learning/application/CourseService.java
+package br.fiap.skillbridgeai.learning.application;
+import br.fiap.skillbridgeai.learning.domain.Course;
+import br.fiap.skillbridgeai.learning.infra.CourseRepository;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class CourseService {
+  private final CourseRepository repo;
+  public CourseService(CourseRepository repo){ this.repo = repo; }
+  public Course create(Course c){ return repo.save(c); }
+  public List<Course> list(){ return repo.findAll(); }
+}
+```
+
+```java
+// src/main/java/br/fiap/skillbridgeai/learning/api/CourseController.java
+package br.fiap.skillbridgeai.learning.api;
+import br.fiap.skillbridgeai.learning.application.CourseService;
+import br.fiap.skillbridgeai.learning.domain.Course;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/courses")
+public class CourseController {
+  private final CourseService service;
+  public CourseController(CourseService service){ this.service = service; }
+  @PostMapping @ResponseStatus(HttpStatus.CREATED)
+  public Course create(@RequestBody Course c){ return service.create(c); }
+  @GetMapping public List<Course> list(){ return service.list(); }
+}
+```
+
+---
+
+## Segurança (básico p/ avaliação)
+
+```java
+// src/main/java/br/fiap/skillbridgeai/security/SecurityConfig.java
+package br.fiap.skillbridgeai.security;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class SecurityConfig {
+  @Bean
+  SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http.csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+          .requestMatchers("/api/public/**","/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html","/h2-console/**").permitAll()
+          .requestMatchers("/api/admin/**").hasRole("ADMIN")
+          .anyRequest().authenticated())
+        .httpBasic(Customizer.withDefaults());
+    http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
+    return http.build();
+  }
+  @Bean
+  InMemoryUserDetailsManager users(){
+    UserDetails user = User.withUsername("user").password("{noop}user").roles("USER").build();
+    UserDetails admin = User.withUsername("admin").password("{noop}admin").roles("ADMIN").build();
+    return new InMemoryUserDetailsManager(user, admin);
+  }
+}
+```
+
+---
+
+## Migração Flyway
+
+```sql
+-- src/main/resources/db/migration/V1__init.sql
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  role VARCHAR(30) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS courses (
+  id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  description VARCHAR(500),
+  active BOOLEAN DEFAULT TRUE
+);
+```
+
+---
+
+## Boas práticas (DDD/Hex)
+
+* **Camadas**: `api` (DTO/Controller) → `application` (use cases) → `domain` (entidades/VOs) → `infra` (repos/adapters).
+* **Linguagem Ubíqua** em nomes.
+* **Services Application** orquestram, **regras** preferencialmente no **domínio**.
+* **Exceptions de domínio** em `shared.domain`.
+
+## Endpoints prontos (MVP)
+
+* `POST /api/v1/users?name=&email=&role=` → cria usuário
+* `GET /api/v1/users` → lista
+* `POST /api/v1/courses` (JSON) → cria curso
+* `GET /api/v1/courses` → lista
+
+> Próximos: Enrollment, Assessment, Matching (com `MatchScore`).

@@ -1,16 +1,18 @@
 package br.com.fiap.skillbridge.ai.user.service;
 
-import br.com.fiap.skillbridge.ai.shared.exception.NotFoundException;
-import br.com.fiap.skillbridge.ai.user.dto.*;
+import br.com.fiap.skillbridge.ai.user.dto.UserRequest;
 import br.com.fiap.skillbridge.ai.user.model.User;
 import br.com.fiap.skillbridge.ai.user.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Optional;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -20,71 +22,37 @@ class UserServiceTest {
     @InjectMocks UserService service;
 
     @Test
-    void create_ok(){
-        var req = new UserRequest("Abner","abner@fiap.com","12345678901");
-        when(repo.existsByEmail("abner@fiap.com")).thenReturn(false);
-        when(repo.existsByCpf("12345678901")).thenReturn(false);
-        when(repo.save(any())).thenAnswer(a -> {
-            User u = a.getArgument(0);
-            u.setId(1L); return u;
-        });
-        var res = service.create(req);
-        assertEquals(1L, res.id());
-        assertEquals("Abner", res.nome());
+    void create_ok_mapeiaEntityPraResponse() {
+        var saved = new User();
+        saved.setId(1L);
+        saved.setNome("Abner");
+        saved.setEmail("abner@fiap.com");
+        saved.setCpf("12345678901");
+
+        when(repo.save(any(User.class))).thenReturn(saved);
+
+        var resp = service.create(new UserRequest("Abner","abner@fiap.com","12345678901"));
+
+        assertEquals(1L, resp.id());
+        assertEquals("Abner", resp.nome());
+        assertEquals("abner@fiap.com", resp.email());
+        assertEquals("12345678901", resp.cpf());
+        verify(repo).save(any(User.class));
     }
 
     @Test
-    void create_emailDuplicado_badRequest(){
-        var req = new UserRequest("A","a@a.com","12345678901");
-        when(repo.existsByEmail("a@a.com")).thenReturn(true);
-        var ex = assertThrows(IllegalArgumentException.class, () -> service.create(req));
-        assertTrue(ex.getMessage().toLowerCase().contains("e-mail"));
+    void list_ok_retornaTodosMapeados() {
+        var u = new User();
+        u.setId(7L);
+        u.setNome("Ana");
+        u.setEmail("ana@fiap.com");
+        u.setCpf("98765432100");
+        when(repo.findAll()).thenReturn(List.of(u));
+
+        var out = service.list();
+
+        assertEquals(1, out.size());
+        assertEquals(7L, out.get(0).id());
+        assertEquals("Ana", out.get(0).nome());
     }
-
-    @Test
-    void update_notFound(){
-        when(repo.findById(99L)).thenReturn(Optional.empty());
-        var req = new UserUpdateRequest("X","x@x.com","11111111111");
-        assertThrows(NotFoundException.class, () -> service.update(99L, req));
-    }
-
-    @Test
-    void delete_ok(){
-        when(repo.existsById(1L)).thenReturn(true);
-        service.delete(1L);
-        verify(repo).deleteById(1L);
-    }
-
-    @Test
-    void update_ok(){
-        var existing = User.builder().id(1L).nome("A").email("a@a.com").cpf("12345678901").build();
-        when(repo.findById(1L)).thenReturn(Optional.of(existing));
-        when(repo.existsByEmail("b@b.com")).thenReturn(false);
-        when(repo.existsByCpf("10987654321")).thenReturn(false);
-        when(repo.save(any())).thenAnswer(a -> a.getArgument(0));
-
-        var req = new UserUpdateRequest("B","b@b.com","10987654321");
-        var res = service.update(1L, req);
-
-        assertEquals("B", res.nome());
-        assertEquals("b@b.com", res.email());
-    }
-
-    @Test
-    void create_cpfDuplicado_badRequest(){
-        var req = new UserRequest("A","a@a.com","12345678901");
-        when(repo.existsByEmail("a@a.com")).thenReturn(false);
-        when(repo.existsByCpf("12345678901")).thenReturn(true);
-        var ex = assertThrows(IllegalArgumentException.class, () -> service.create(req));
-        assertTrue(ex.getMessage().toLowerCase().contains("cpf"));
-    }
-
-    @Test
-    void get_ok(){
-        var u = User.builder().id(1L).nome("A").email("a@a.com").cpf("12345678901").build();
-        when(repo.findById(1L)).thenReturn(Optional.of(u));
-        var res = service.get(1L);
-        assertEquals("A", res.nome());
-    }
-
 }

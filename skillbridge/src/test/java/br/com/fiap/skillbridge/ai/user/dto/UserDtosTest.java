@@ -17,4 +17,19 @@ class UserDtosTest {
         var u = new UserUpdateRequest("B","b@b.com","10987654321");
         assertEquals("B", u.nome());
     }
+    @Test
+    void request_getters() {
+        var r = new UserRequest("Abner","abner@fiap.com","123");
+        assertEquals("Abner", r.nome());
+        assertEquals("abner@fiap.com", r.email());
+        assertEquals("123", r.cpf());
+    }
+    @Test
+    void response_getters() {
+        var r = new UserResponse(1L,"Ana","ana@fiap.com","456");
+        assertEquals(1L, r.id());
+        assertEquals("Ana", r.nome());
+        assertEquals("ana@fiap.com", r.email());
+        assertEquals("456", r.cpf());
+    }
 }
