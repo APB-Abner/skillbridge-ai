@@ -30,13 +30,13 @@
         <url/>
     </scm>
     <properties>
-        <java.version>21</java.version>
+        <java.version>24</java.version>
+        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>24</maven.compiler.source>
         <springdoc.version>2.7.0</springdoc.version>
         <maven.surefire.version>3.5.4</maven.surefire.version>
-        <jacoco.version>0.8.12</jacoco.version>
-        <lombok.version>1.18.34</lombok.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <jacoco.version>0.8.13</jacoco.version>
+        <lombok.version>1.18.38</lombok.version>
         <commons.lang3.version>3.18.0</commons.lang3.version>
     </properties>
 
