@@ -2,6 +2,7 @@ package br.com.fiap.skillbridge.ai.matricula.controller;
 
 import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaRequest;
 import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaResponse;
+import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaUpdateRequest;
 import br.com.fiap.skillbridge.ai.matricula.service.MatriculaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -34,7 +35,12 @@ public class MatriculaController {
                                         @RequestParam(required = false) Long trilhaId) {
         return service.list(userId, trilhaId);
     }
-
+@Operation(summary = "Atualiza matrícula")
+    @PutMapping("/{id}")
+    public MatriculaResponse update(@PathVariable Long id,
+                                    @RequestBody @Valid MatriculaUpdateRequest r) {
+        return service.update(id, r);
+    }
 
     @Operation(summary = "Cancela matrícula")
     @DeleteMapping("/{id}")

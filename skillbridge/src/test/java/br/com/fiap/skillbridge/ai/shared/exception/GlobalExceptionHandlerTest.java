@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -147,4 +148,20 @@ class GlobalExceptionHandlerTest {
     }
 
 
+    @Test
+    void handleResponseStatus_quandoStatusNaoEhHttpStatus_usaToStringSemEstourar() {
+        // given: um status que NÃO é HttpStatus enum
+        HttpStatusCode status = HttpStatusCode.valueOf(499); // 499 não existe no HttpStatus
+        var ex = new ResponseStatusException(status, "X");
+        var req = mockRequest("/api/v1/teste");
+
+        // when
+        ResponseEntity<ApiError> resp = handler.handleResponseStatus(ex, req);
+
+        // then: só garante que passou pelo handler com esse status
+        ApiError body = resp.getBody();
+        assertNotNull(body);
+        assertEquals(499, body.status());
+        assertEquals("/api/v1/teste", body.path());
+    }
 }

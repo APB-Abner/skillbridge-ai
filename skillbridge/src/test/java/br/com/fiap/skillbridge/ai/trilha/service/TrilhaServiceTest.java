@@ -2,6 +2,7 @@ package br.com.fiap.skillbridge.ai.trilha.service;
 
 import br.com.fiap.skillbridge.ai.shared.exception.NotFoundException;
 import br.com.fiap.skillbridge.ai.trilha.dto.TrilhaRequest;
+import br.com.fiap.skillbridge.ai.trilha.dto.TrilhaUpdateRequest;
 import br.com.fiap.skillbridge.ai.trilha.model.Trilha;
 import br.com.fiap.skillbridge.ai.trilha.repository.TrilhaRepository;
 import org.junit.jupiter.api.Test;
@@ -45,7 +46,7 @@ class TrilhaServiceTest {
         when(repo.findById(1L)).thenReturn(Optional.of(t));
         when(repo.save(any())).thenAnswer(a -> a.getArgument(0));
 
-        var res = service.update(1L, new TrilhaRequest("New","Nova", false));
+        var res = service.update(1L, new TrilhaUpdateRequest("New","Nova", false));
         assertEquals("New", res.titulo());
         assertFalse(res.ativa());
     }
@@ -59,5 +60,6 @@ class TrilhaServiceTest {
         var out = service.list();
         assertEquals(2, out.size());
     }
+
 
 }

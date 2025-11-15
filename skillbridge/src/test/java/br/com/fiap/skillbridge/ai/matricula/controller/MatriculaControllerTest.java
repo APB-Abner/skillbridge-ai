@@ -154,5 +154,4 @@ class MatriculaControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].trilhaTitulo").value("Java & DDD"));
     }
-
 }

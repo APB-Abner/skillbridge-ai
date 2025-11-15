@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -65,6 +66,16 @@ class TrilhaControllerTest {
                         .contentType(MediaType.APPLICATION_JSON).content(body))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.ativa").value(false));
+    }
+
+    @Test
+    void delete_204() throws Exception {
+        // doNothing().when(service).delete(1L); // opcional
+
+        mvc.perform(delete("/api/v1/trilhas/{id}", 1L))
+                .andExpect(status().isNoContent());
+
+        verify(service).delete(1L);
     }
 
 }

@@ -1,9 +1,14 @@
-package br.com.fiap.skillbridge.ai.user.dto;
+package br.com.fiap.skillbridge.ai.trilha.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
 
-public record UserUpdateRequest(
-        @NotBlank @Size(max=150) String nome,
-        @NotBlank @Email String email,
-        @NotBlank @Pattern(regexp="\\d{11}") String cpf
+public record TrilhaUpdateRequest(
+
+        @NotBlank(message = "Título é obrigatório")
+        String titulo,
+
+        @NotBlank(message = "Descrição é obrigatória")
+        String descricao,
+
+        Boolean ativa
 ) {}

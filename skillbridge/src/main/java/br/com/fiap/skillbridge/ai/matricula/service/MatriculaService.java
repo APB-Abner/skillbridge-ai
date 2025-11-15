@@ -57,4 +57,33 @@ public class MatriculaService {
                 m.getCriadaEm()
         );
     }
+
+    public MatriculaResponse update(Long id, MatriculaUpdateRequest r) {
+        var m = repo.findById(id).orElseThrow(() -> new NotFoundException("Matrícula não encontrada."));
+
+        Long newUserId = r.userId();
+        Long newTrilhaId = r.trilhaId();
+
+        boolean userChanged = newUserId != null && !newUserId.equals(m.getUser().getId());
+        boolean trilhaChanged = newTrilhaId != null && !newTrilhaId.equals(m.getTrilha().getId());
+
+        if (userChanged) {
+            var user = userRepo.findById(newUserId)
+                    .orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
+            m.setUser(user);
+        }
+
+        if (trilhaChanged) {
+            var trilha = trilhaRepo.findById(newTrilhaId)
+                    .orElseThrow(() -> new NotFoundException("Trilha não encontrada."));
+            m.setTrilha(trilha);
+        }
+
+        if ((userChanged || trilhaChanged)
+                && repo.existsByUser_IdAndTrilha_Id(m.getUser().getId(), m.getTrilha().getId())) {
+            throw new IllegalArgumentException("Usuário já matriculado nesta trilha.");
+        }
+
+        return map(repo.save(m));
+    }
 }

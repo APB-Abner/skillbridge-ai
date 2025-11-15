@@ -26,8 +26,9 @@ public class TrilhaController {
     @Operation(summary="Busca trilha")
     @GetMapping("/{id}") public TrilhaResponse get(@PathVariable Long id){ return service.get(id); }
 
-    @Operation(summary="Atualiza trilha")
-    @PutMapping("/{id}") public TrilhaResponse update(@PathVariable Long id, @RequestBody @Valid TrilhaRequest r){
+    @Operation(summary = "Atualiza trilha")
+    @PutMapping("/{id}")
+    public TrilhaResponse update(@PathVariable Long id, @RequestBody @Valid TrilhaUpdateRequest r) {
         return service.update(id, r);
     }
 

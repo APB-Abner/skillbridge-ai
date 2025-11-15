@@ -18,7 +18,7 @@ public class TrilhaService {
         var t = Trilha.builder()
                 .titulo(r.titulo())
                 .descricao(r.descricao())
-                .ativa(r.ativa()==null ? true : r.ativa())
+                .ativa(r.ativa() == null || r.ativa())
                 .build();
         return map(repo.save(t));
     }
@@ -33,7 +33,7 @@ public class TrilhaService {
     }
 
     @Transactional
-    public TrilhaResponse update(Long id, TrilhaRequest r){
+    public TrilhaResponse update(Long id, TrilhaUpdateRequest r){
         var t = repo.findById(id).orElseThrow(() -> new NotFoundException("Trilha não encontrada."));
         t.setTitulo(r.titulo());
         t.setDescricao(r.descricao());

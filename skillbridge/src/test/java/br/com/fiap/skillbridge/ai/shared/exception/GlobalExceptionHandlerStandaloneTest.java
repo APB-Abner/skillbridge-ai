@@ -2,6 +2,7 @@ package br.com.fiap.skillbridge.ai.shared.exception;
 
 import br.com.fiap.skillbridge.ai.trilha.controller.TrilhaController;
 import br.com.fiap.skillbridge.ai.trilha.dto.TrilhaRequest;
+import br.com.fiap.skillbridge.ai.trilha.dto.TrilhaUpdateRequest;
 import br.com.fiap.skillbridge.ai.trilha.service.TrilhaService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ class GlobalExceptionHandlerStandaloneTest {
     @Test
     @DisplayName("PUT /trilhas/{id} - NotFoundException mapeada")
     void update_notFoundException() throws Exception {
-        when(service.update(eq(123L), any(TrilhaRequest.class))).thenThrow(new NotFoundException("Trilha não encontrada."));
+        when(service.update(eq(123L), any(TrilhaUpdateRequest.class))).thenThrow(new NotFoundException("Trilha não encontrada."));
         mvc.perform(put("/api/v1/trilhas/123")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"titulo\":\"T\",\"descricao\":\"D\"}"))
@@ -55,7 +56,7 @@ class GlobalExceptionHandlerStandaloneTest {
     @Test
     @DisplayName("PUT /trilhas/{id} - Exception genérica mapeada")
     void update_genericException() throws Exception {
-        when(service.update(eq(999L), any(TrilhaRequest.class))).thenThrow(new RuntimeException("Falha interna"));
+        when(service.update(eq(999L), any(TrilhaUpdateRequest.class))).thenThrow(new RuntimeException("Falha interna"));
         mvc.perform(put("/api/v1/trilhas/999")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"titulo\":\"T\",\"descricao\":\"D\"}"))
