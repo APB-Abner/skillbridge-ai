@@ -13,4 +13,9 @@ class MatriculaDtosTest {
         var m = new MatriculaResponse(1L,1L,"U",6L,"T", LocalDateTime.now());
         assertNotNull(m.toString());
     }
+    @Test void updateRequest_getters(){
+        var update = new MatriculaUpdateRequest(3L, 8L);
+        assertEquals(3L, update.userId());
+        assertEquals(8L, update.trilhaId());
+    }
 }

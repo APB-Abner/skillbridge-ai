@@ -62,4 +62,51 @@ class TrilhaServiceTest {
     }
 
 
+    @Test
+    void update_quandoAtivaNaoInformada_mantemValorAtual() {
+        var existente = Trilha.builder().id(2L).titulo("Data").descricao("Velha").ativa(false).build();
+        when(repo.findById(2L)).thenReturn(Optional.of(existente));
+        when(repo.save(any())).thenAnswer(a -> a.getArgument(0));
+
+        var res = service.update(2L, new TrilhaUpdateRequest("DataOps", "Nova desc", null));
+
+        assertEquals("DataOps", res.titulo());
+        assertEquals("Nova desc", res.descricao());
+        assertFalse(res.ativa());
+        verify(repo).save(existente);
+    }
+
+    @Test
+    void create_quandoAtivaNulaAssumeTrue() {
+        when(repo.save(any())).thenAnswer(a -> {
+            Trilha salvo = a.getArgument(0);
+            salvo.setId(99L);
+            return salvo;
+        });
+
+        var res = service.create(new TrilhaRequest("Cloud", "Ops", null));
+
+        assertTrue(res.ativa());
+        assertEquals(99L, res.id());
+    }
+
+    @Test
+    void delete_ok() {
+        when(repo.existsById(8L)).thenReturn(true);
+
+        service.delete(8L);
+
+        verify(repo).deleteById(8L);
+    }
+
+    @Test
+    void get_ok() {
+        var trilha = Trilha.builder().id(6L).titulo("DevOps").descricao("Pipelines").ativa(true).build();
+        when(repo.findById(6L)).thenReturn(Optional.of(trilha));
+
+        var res = service.get(6L);
+
+        assertEquals("DevOps", res.titulo());
+        assertEquals("Pipelines", res.descricao());
+    }
 }

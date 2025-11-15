@@ -2,6 +2,7 @@ package br.com.fiap.skillbridge.ai.matricula.controller;
 
 import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaRequest;
 import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaResponse;
+import br.com.fiap.skillbridge.ai.matricula.dto.MatriculaUpdateRequest;
 import br.com.fiap.skillbridge.ai.matricula.service.MatriculaService;
 import br.com.fiap.skillbridge.ai.shared.exception.NotFoundException;
 import br.com.fiap.skillbridge.ai.shared.exception.GlobalExceptionHandler;
@@ -20,6 +21,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -153,5 +155,41 @@ class MatriculaControllerTest {
         mvc.perform(get("/api/v1/matriculas"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].trilhaTitulo").value("Java & DDD"));
+    }
+
+    @Test
+    void update_200() throws Exception {
+        var response = new MatriculaResponse(42L, 9L, "Mateus", 3L, "Cloud", OffsetDateTime.now().toLocalDateTime());
+        when(service.update(eq(42L), any(MatriculaUpdateRequest.class))).thenReturn(response);
+
+        mvc.perform(put("/api/v1/matriculas/{id}", 42L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"userId":9,"trilhaId":3}
+                                """))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(42))
+                .andExpect(jsonPath("$.trilhaTitulo").value("Cloud"));
+    }
+
+    @Test
+    void update_404_notFound() throws Exception {
+        Mockito.doThrow(new NotFoundException("Matr��cula n�o encontrada"))
+                .when(service).update(eq(77L), any(MatriculaUpdateRequest.class));
+
+        mvc.perform(put("/api/v1/matriculas/{id}", 77L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"userId":1,"trilhaId":2}
+                                """))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void update_400_invalidBody() throws Exception {
+        mvc.perform(put("/api/v1/matriculas/{id}", 10L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isBadRequest());
     }
 }
