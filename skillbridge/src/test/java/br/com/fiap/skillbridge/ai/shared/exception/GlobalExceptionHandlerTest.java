@@ -32,7 +32,7 @@ class GlobalExceptionHandlerTest {
         var fieldError = new FieldError("user", "email", "must not be blank");
         when(bindingResult.getFieldErrors()).thenReturn(List.of(fieldError));
 
-        var ex = new MethodArgumentNotValidException(null, bindingResult);
+        var ex = new MethodArgumentNotValidException(mock(org.springframework.core.MethodParameter.class), bindingResult);
         var req = mockRequest("/api/v1/usuarios");
 
         // when
@@ -141,7 +141,7 @@ class GlobalExceptionHandlerTest {
         // se ApiError for record, usa body.status() / body.error() / body.message()
         // se for classe, troca pra getStatus(), getError(), getMessage()
         assertEquals(409, body.status());
-        assertEquals("409 CONFLICT", body.error());
+        assertEquals("Conflict", body.error());
         assertEquals("CONFLICT", body.message());
         assertEquals("/api/v1/usuarios", body.path());
     }
