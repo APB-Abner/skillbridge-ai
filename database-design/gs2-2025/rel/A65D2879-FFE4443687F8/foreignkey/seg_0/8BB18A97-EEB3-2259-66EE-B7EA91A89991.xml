@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8BB18A97-EEB3-2259-66EE-B7EA91A89991" containerWithKeyObject="77440F10-EBD8-B30E-157F-6796E6092C1C" localFKIndex="598E578B-D6E8-3C54-FC0C-D93419E0538E" name="FK_MODULOS_TRILHA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>FK_MODULOS_TRILHA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<referredTableLongName>RM558468.TRILHAS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CC011C66-3C9C-D459-4984-794ACB9AD470</referredTableID>
+<keyObject>4066ECC5-FC24-0EAC-ECF5-BC33EFFADFFD</keyObject>
+<referredKeyID>4066ECC5-FC24-0EAC-ECF5-BC33EFFADFFD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

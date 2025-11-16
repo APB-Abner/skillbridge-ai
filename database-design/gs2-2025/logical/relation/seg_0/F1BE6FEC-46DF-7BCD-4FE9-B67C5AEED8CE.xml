@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MENTORIA_TRILHA" directorySegmentName="seg_0" id="F1BE6FEC-46DF-7BCD-4FE9-B67C5AEED8CE">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>DC1D29A0-B7EC-6313-03B4-F12E6EB63F8D</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>F98E70EF-D16A-47F5-5259-E78C94D31CEE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0E2B9591-ED19-A92C-F7C3-925D67802179</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BC834A81-F124-83EA-22B0-D37C8D112778</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

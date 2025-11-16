@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_DIAG_TRILHA" directorySegmentName="seg_0" id="1521F523-EA10-254E-324C-3D72AD969C91">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>5A6D6244-0671-D0AA-1C2F-86FA1346D88C</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>F98E70EF-D16A-47F5-5259-E78C94D31CEE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0E2B9591-ED19-A92C-F7C3-925D67802179</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B8D1794B-CFB5-EE66-EE42-CC947C47A10B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

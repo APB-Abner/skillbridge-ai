@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EDC50702-A6EE-B79B-7A8D-7E9280C5FB9F" name="TRILHA SKILL">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>94627632-5408-22F9-00CE-A27BE25C04E1</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="TRILHA ID" id="1A07734F-354E-2BDD-D635-0663C5A9DDB7">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>ABEC43E2-7367-D27E-0DFB-7B5FF15A9D96</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<referedAttribute>6866D50D-2036-4C22-87C9-54BFE5CB317D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SKILL ID" id="4282A002-BA5A-975F-7B8F-35270CB75DA2">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>80842732-E792-5F80-D94F-37A18BD7AFF1</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<referedAttribute>CE982340-291D-5F1A-65B1-B645F003C9C4</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIVEL ESPERADO" id="7F1F1CA2-AB5F-97FA-9D7D-D83F7990176C">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>84469776-FE38-77EE-334C-D45A8B22AF23</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<constraintName>CK_TRILHA_SKILL_NIVEL</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>100</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="05CA7ADE-F574-DB78-BACC-8C6DE898DAAF" name="PK TRILHA SKILL">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>1FA16EF1-0240-D06A-8B77-303CD66EE384</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1A07734F-354E-2BDD-D635-0663C5A9DDB7</attributeRef>
+<attributeRef>4282A002-BA5A-975F-7B8F-35270CB75DA2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

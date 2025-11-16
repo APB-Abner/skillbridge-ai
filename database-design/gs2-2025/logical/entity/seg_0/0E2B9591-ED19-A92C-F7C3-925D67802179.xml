@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0E2B9591-ED19-A92C-F7C3-925D67802179" name="TRILHAS">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>CC011C66-3C9C-D459-4984-794ACB9AD470</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="6866D50D-2036-4C22-87C9-54BFE5CB317D">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>B48D410B-6609-AC93-21B5-856E57CF7830</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TITULO" id="3B0F8FBE-EF64-60B3-8912-E6E0A42CE659">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>34EA8A57-0BEB-A12D-7896-65CF731B2A07</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>180 BYTE</dataTypeSize>
+<ownDataTypeParameters>180 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESCRICAO" id="D94A246D-CAE4-6C36-CCAC-EFD512DFDDBA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>60AB9BEF-8A1F-73F5-D697-E74C12DB44FF</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>800 BYTE</dataTypeSize>
+<ownDataTypeParameters>800 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ATIVA" id="F8B927DF-81A0-DEE4-403B-0CEEB5102DA1">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>DE9E7D29-3743-9DC8-E1E0-89C80A5116A9</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<constraintName>CK_TRILHAS_ATIVA</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;N&apos;" description=""/>
+<valueDef value="&apos;S&apos;" description=""/>
+</listOfValues>
+<defaultValue>&apos;S&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIVEL" id="A59E2C26-CED9-8D5D-40AA-387ACABD9BB6">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>BE3A1F94-27F3-1302-192C-9BBB4EE60533</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CARGA HORARIA" id="BE3C290B-5654-A2FD-7010-A825B69E76C6">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>3676F731-B831-5018-EC43-FA2624F8CA50</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PUBLICO ALVO" id="D169A3DE-C763-C566-7072-2BD5E7CD3588">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>1DA91915-0D59-B640-A442-B051FB4CCAD2</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F98E70EF-D16A-47F5-5259-E78C94D31CEE" name="PK TRILHAS">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>4066ECC5-FC24-0EAC-ECF5-BC33EFFADFFD</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6866D50D-2036-4C22-87C9-54BFE5CB317D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="SEQ_SESSOES_MENTORIA" directorySegmentName="seg_0" id="4CF5CA67-830A-AEDB-2269-BB56EE63FCB1">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>SEQ_SESSOES_MENTORIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:30 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<incrementBy>1</incrementBy>
+<maxValue>9999999999999999999999999999</maxValue>
+<minValue>1</minValue>
+<noCache>YES</noCache>
+<user>F54D703E-D9BE-E31A-D3BE-42CC11A0FB48</user>
+</SequenceOraclev10g>

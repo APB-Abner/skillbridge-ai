@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="32D45FFA-AB1B-B95D-EBEC-710A9378B790" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="DIAGNOSTICOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>DIAGNOSTICOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="10623D0E-71C6-AD9E-5410-C02A336FB41B">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_ID" id="9B95A4BA-5B1B-B013-7AB2-5074910C8799">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C2DD539F-B4B9-F227-F113-021751515784" referredColumn="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</associations>
+</Column>
+<Column name="TRILHA_ID" id="69710876-9632-D197-1880-14E19B840576">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>TRILHA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A6D6244-0671-D0AA-1C2F-86FA1346D88C" referredColumn="B48D410B-6609-AC93-21B5-856E57CF7830"/>
+</associations>
+</Column>
+<Column name="DATA_APLICACAO" id="286676EC-95D8-CF0E-3899-C1B8C3AC0DA6">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>DATA_APLICACAO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO" id="15568C3F-2AC1-1883-FC7A-08374E58F88B">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>TIPO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SCORE_GERAL" id="E6BC1F0F-D9FC-20B8-8B1B-12F1C4381373">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>DIAGNOSTICOS</sourceObjSchema>
+<sourceObjName>SCORE_GERAL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="25960850-6552-FCC8-AC00-60EA6FE0D996" name="PK_DIAGNOSTICOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_DIAGNOSTICOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="10623D0E-71C6-AD9E-5410-C02A336FB41B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F24B0A7C-719C-EDED-3718-E88800BADE59" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_DIAGNOSTICOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_DIAGNOSTICOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="10623D0E-71C6-AD9E-5410-C02A336FB41B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0B8DF03F-4745-B23F-DE4C-71FB95AC9C47" name="FK_DIAG_TRILHA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69710876-9632-D197-1880-14E19B840576"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="066B7075-1FA1-A395-4B50-6D3E239676DC" name="FK_DIAG_USER">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B95A4BA-5B1B-B013-7AB2-5074910C8799"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

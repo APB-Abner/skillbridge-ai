@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="RM558468" directorySegmentName="seg_0" id="F54D703E-D9BE-E31A-D3BE-42CC11A0FB48">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjName>RM558468</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:29 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<schemaObject>259471C6-84F8-6C93-2ED7-DC63BEC9011E</schemaObject>
+</UserOraclev10g>

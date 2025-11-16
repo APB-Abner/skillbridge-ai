@@ -1,0 +1,218 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7C52D99F-F57B-00A5-FCB8-64443B479641" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="SESSOES_MENTORIA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>SESSOES_MENTORIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="BA30FE3A-8E98-95D9-5594-064DF806D3F8">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MENTOR_ID" id="0C1E16AB-084E-8CA5-44E7-41E5BB295461">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>MENTOR_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A2BE728E-02BE-9D5C-3305-786BCA44F620" referredColumn="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</associations>
+</Column>
+<Column name="ALUNO_ID" id="76C97CD8-BC80-A22C-BA36-D1BE216B743E">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>ALUNO_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CECE7E3-76D3-8EC9-E0BA-22F7509164CB" referredColumn="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</associations>
+</Column>
+<Column name="TRILHA_ID" id="F6B0ECE0-DC13-E354-D830-1FF8C36EF2C6">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>TRILHA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DC1D29A0-B7EC-6313-03B4-F12E6EB63F8D" referredColumn="B48D410B-6609-AC93-21B5-856E57CF7830"/>
+</associations>
+</Column>
+<Column name="DATA_HORA_INICIO" id="9817CCCB-21D1-70B8-89D7-AAD332495192">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>DATA_HORA_INICIO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATA_HORA_FIM" id="284B1A40-C6EC-C83B-8D10-74E594D3155D">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>DATA_HORA_FIM</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="5A4059A7-3CA7-EA43-29AF-23CC4509CA2A">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<constraintName>CK_MENTORIA_STATUS</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;AGENDADA&apos;" description=""/>
+<valueDef value="&apos;CANCELADA&apos;" description=""/>
+<valueDef value="&apos;REALIZADA&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CANAL" id="6E3BCFD3-F8EF-D17D-F7FD-03F39A3C4EB9">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>CANAL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OBSERVACOES" id="E267C754-10DE-A183-6D8D-67CC6E78B7A8">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SESSOES_MENTORIA</sourceObjSchema>
+<sourceObjName>OBSERVACOES</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4E0E54A5-A4E3-1C32-A698-8C8972A16A41" name="PK_SESSOES_MENTORIA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_SESSOES_MENTORIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA30FE3A-8E98-95D9-5594-064DF806D3F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C175AD77-4D3F-1CB5-FCF2-1D0262460B1B" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_SESSOES_MENTORIA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_SESSOES_MENTORIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA30FE3A-8E98-95D9-5594-064DF806D3F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="883CB24E-70A1-ECAA-632D-AD867D584350" name="FK_MENTORIA_ALUNO">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="76C97CD8-BC80-A22C-BA36-D1BE216B743E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="657071F6-1BCC-17DB-88A7-589EDD10DB2B" name="FK_MENTORIA_MENTOR">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C1E16AB-084E-8CA5-44E7-41E5BB295461"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3D211B3-0DD3-84E1-36EF-48ABE42044FF" name="FK_MENTORIA_TRILHA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6B0ECE0-DC13-E354-D830-1FF8C36EF2C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

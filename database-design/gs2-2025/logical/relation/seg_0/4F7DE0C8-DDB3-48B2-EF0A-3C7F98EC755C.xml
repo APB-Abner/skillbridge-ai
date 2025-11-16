@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MENTORIA_ALUNO" directorySegmentName="seg_0" id="4F7DE0C8-DDB3-48B2-EF0A-3C7F98EC755C">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>9CECE7E3-76D3-8EC9-E0BA-22F7509164CB</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>CE40065F-592B-4E79-AC1E-6D20CA63CBC6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3526D206-6A89-AFFE-61EE-080587CC8159</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BC834A81-F124-83EA-22B0-D37C8D112778</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

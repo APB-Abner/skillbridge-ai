@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8B05BCAF-31F6-2E52-0EDB-A88BD427205E" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PERGUNTAS_DIAGNOSTICO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PERGUNTAS_DIAGNOSTICO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="137B6B6D-BA4D-39FF-D5FF-F59F428E3487">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PERGUNTAS_DIAGNOSTICO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEXTO_PERGUNTA" id="E75CD839-E616-E2B4-E358-4F0794B0FF7D">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PERGUNTAS_DIAGNOSTICO</sourceObjSchema>
+<sourceObjName>TEXTO_PERGUNTA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<ownDataTypeParameters>500 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SKILL_ID" id="667A5915-4772-C5BD-E629-DEACC293208E">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PERGUNTAS_DIAGNOSTICO</sourceObjSchema>
+<sourceObjName>SKILL_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F56D1CD4-33CD-E8E6-C6CB-C3EDC291FED3" referredColumn="A7C23B45-71EE-26BA-93E4-B2A44BA7DDC7"/>
+</associations>
+</Column>
+<Column name="PESO" id="CB9F1BC2-FC32-6ACC-B5BA-625536662B0A">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PERGUNTAS_DIAGNOSTICO</sourceObjSchema>
+<sourceObjName>PESO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<defaultValue>1</defaultValue>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="92A7816C-5867-1C01-9645-63844AB2CC3F" name="PK_PERGUNTAS_DIAG">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_PERGUNTAS_DIAG</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="137B6B6D-BA4D-39FF-D5FF-F59F428E3487"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DB2B3B78-C0E3-0E2C-FDC3-5591649B2E43" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_PERGUNTAS_DIAG">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_PERGUNTAS_DIAG</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="137B6B6D-BA4D-39FF-D5FF-F59F428E3487"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="406D6A7D-AD3E-87C5-F490-CBC859783CD1" name="FK_PERG_SKILL">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="667A5915-4772-C5BD-E629-DEACC293208E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

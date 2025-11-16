@@ -1,0 +1,176 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C97ADC06-820C-0128-5076-6BD6AE9D3E35" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="MATRICULAS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>MATRICULAS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="CEF813DD-69E8-B03D-1CAF-E56E58FE191D">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MATRICULAS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_ID" id="3C612E35-5675-A1CF-24C3-40C9DFAF4EF3">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MATRICULAS</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="30D20617-26B8-86B3-B6CB-860CBB6A0218" referredColumn="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</associations>
+</Column>
+<Column name="TRILHA_ID" id="5C867A18-721E-185A-4DFB-4A62A0EB6016">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MATRICULAS</sourceObjSchema>
+<sourceObjName>TRILHA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F3D25117-88C8-78D4-2947-FE0505DF8885" referredColumn="B48D410B-6609-AC93-21B5-856E57CF7830"/>
+</associations>
+</Column>
+<Column name="CRIADA_EM" id="7F2D69BC-0844-5ADE-30D9-114322D3E6EA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MATRICULAS</sourceObjSchema>
+<sourceObjName>CRIADA_EM</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="58C2D623-B46D-E19F-A7B0-628BC7A281EA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MATRICULAS</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<constraintName>CK_MATRICULAS_STATUS</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;ATIVA&apos;" description=""/>
+<valueDef value="&apos;CANCELADA&apos;" description=""/>
+<valueDef value="&apos;CONCLUIDA&apos;" description=""/>
+<valueDef value="&apos;TRANCADA&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B6D420A2-A6FF-5877-4FDD-42901ACE64EB" name="PK_MATRICULAS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_MATRICULAS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CEF813DD-69E8-B03D-1CAF-E56E58FE191D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30BFBD02-0A66-96E8-E1B5-0AB53D7D9871" name="UK_MATRICULAS_USER_TRILHA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_MATRICULAS_USER_TRILHA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3C612E35-5675-A1CF-24C3-40C9DFAF4EF3"/>
+<colUsage columnID="5C867A18-721E-185A-4DFB-4A62A0EB6016"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B83E659F-528D-4C42-048F-04DF7C107238" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_MATRICULAS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_MATRICULAS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CEF813DD-69E8-B03D-1CAF-E56E58FE191D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A2581F5-3708-7A14-F795-9133263C3F94" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UK_MATRICULAS_USER_TRILHA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_MATRICULAS_USER_TRILHA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3C612E35-5675-A1CF-24C3-40C9DFAF4EF3"/>
+<colUsage columnID="5C867A18-721E-185A-4DFB-4A62A0EB6016"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0DB46FE9-4249-8D3F-4348-C2CD0EE068A2" name="FK_MATRICULAS_TRILHA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C867A18-721E-185A-4DFB-4A62A0EB6016"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1059B5BC-24C1-846D-CDF6-FA624F1FA380" name="FK_MATRICULAS_USER">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3C612E35-5675-A1CF-24C3-40C9DFAF4EF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

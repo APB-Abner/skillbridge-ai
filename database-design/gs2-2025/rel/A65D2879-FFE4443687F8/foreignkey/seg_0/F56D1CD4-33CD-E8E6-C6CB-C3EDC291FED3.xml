@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F56D1CD4-33CD-E8E6-C6CB-C3EDC291FED3" containerWithKeyObject="8B05BCAF-31F6-2E52-0EDB-A88BD427205E" localFKIndex="406D6A7D-AD3E-87C5-F490-CBC859783CD1" name="FK_PERG_SKILL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>FK_PERG_SKILL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<referredTableLongName>RM558468.SKILLS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3FDD1019-D311-6A6A-F1A9-FA6C4B8C02DB</referredTableID>
+<keyObject>F0044DDE-C4C2-0D36-63C1-5682BECA2A97</keyObject>
+<referredKeyID>F0044DDE-C4C2-0D36-63C1-5682BECA2A97</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

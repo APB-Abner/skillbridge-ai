@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="TBSPC_ALUNOS" directorySegmentName="seg_0" id="C6E10E1C-A6BB-7417-CE3A-66DAAADC897E">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>TBSPC_ALUNOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+</TableSpaceOraclev10g>

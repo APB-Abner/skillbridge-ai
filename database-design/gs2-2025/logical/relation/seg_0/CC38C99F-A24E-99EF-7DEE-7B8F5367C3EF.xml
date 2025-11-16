@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_PROG_MODULO" directorySegmentName="seg_0" id="CC38C99F-A24E-99EF-7DEE-7B8F5367C3EF">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>61F11FC0-8001-8AA7-312C-62ED1D1CC1ED</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>22C6B43D-7CDA-63B8-A6FD-781068F0C475</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1BC93273-DB56-2884-3D43-5125369F59A6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D26DF979-8280-6816-D0F0-1F2E8BD9CE11</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

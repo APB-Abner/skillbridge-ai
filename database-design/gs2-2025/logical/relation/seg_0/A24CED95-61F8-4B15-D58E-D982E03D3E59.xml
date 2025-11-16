@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MATRICULAS_USER" directorySegmentName="seg_0" id="A24CED95-61F8-4B15-D58E-D982E03D3E59">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>30D20617-26B8-86B3-B6CB-860CBB6A0218</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>CE40065F-592B-4E79-AC1E-6D20CA63CBC6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3526D206-6A89-AFFE-61EE-080587CC8159</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>20BF5998-223B-025C-41F7-B3C4D66FECF3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,173 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="77440F10-EBD8-B30E-157F-6796E6092C1C" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="MODULOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>MODULOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B6019964-E21F-ED68-7527-05F6CA1C412F">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRILHA_ID" id="73E8CDE9-E890-1418-48F9-E96C9DEFF836">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>TRILHA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8BB18A97-EEB3-2259-66EE-B7EA91A89991" referredColumn="B48D410B-6609-AC93-21B5-856E57CF7830"/>
+</associations>
+</Column>
+<Column name="TITULO" id="F626F973-AE8D-FBE7-2BA3-8665084E3517">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>TITULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>180 CHAR</dataTypeSize>
+<ownDataTypeParameters>180 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="FAC2736C-9941-A837-0CA0-7B1826F90ADE">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>DESCRICAO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>800 CHAR</dataTypeSize>
+<ownDataTypeParameters>800 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDEM" id="FE8CD111-9592-88A7-A042-5937F6A22504">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>ORDEM</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARGA_HORARIA" id="36ACDCC7-FB49-2EEE-DF6C-5A84381FC3FD">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>MODULOS</sourceObjSchema>
+<sourceObjName>CARGA_HORARIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="217414B0-A2F9-7F70-DA0B-0A31415B922C" name="PK_MODULOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_MODULOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6019964-E21F-ED68-7527-05F6CA1C412F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8BBCE515-83B2-8840-F959-8F4EA09CAF69" name="UK_MODULOS_TRILHA_ORDEM">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_MODULOS_TRILHA_ORDEM</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73E8CDE9-E890-1418-48F9-E96C9DEFF836"/>
+<colUsage columnID="FE8CD111-9592-88A7-A042-5937F6A22504"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86339160-977A-502D-9F58-0AFBBC30D19B" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_MODULOS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_MODULOS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6019964-E21F-ED68-7527-05F6CA1C412F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="48DB19EB-2D16-7CAD-D9D3-7B25CF328A06" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UK_MODULOS_TRILHA_ORDEM">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_MODULOS_TRILHA_ORDEM</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73E8CDE9-E890-1418-48F9-E96C9DEFF836"/>
+<colUsage columnID="FE8CD111-9592-88A7-A042-5937F6A22504"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="598E578B-D6E8-3C54-FC0C-D93419E0538E" name="FK_MODULOS_TRILHA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73E8CDE9-E890-1418-48F9-E96C9DEFF836"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,165 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8263D225-5904-F1D1-E250-11277E3D474D" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="USERS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>USERS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="3AFEBDA8-B52E-4091-716B-DE2A39924DD6">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>NOME</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="D2E0633B-92BB-6527-4F9D-4F6A718C6302">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="8826D902-A524-8530-F3C4-764A23ED57FA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>CPF</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11 CHAR</dataTypeSize>
+<ownDataTypeParameters>11 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_USUARIO" id="B0D444B2-52D1-A4D7-F066-C29EB3618CF0">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>USERS</sourceObjSchema>
+<sourceObjName>TIPO_USUARIO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="218A6D9F-8E5F-B7EF-5CF3-7DDDDA9C8A25" name="PK_USERS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_USERS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F16EAE7A-491D-97D0-F76C-F7C68FF0D5C3" name="UQ_USERS_CPF">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_USERS_CPF</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8826D902-A524-8530-F3C4-764A23ED57FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F9339B9-FF8D-1C6C-60E9-947B7ABA321D" name="UQ_USERS_EMAIL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_USERS_EMAIL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2E0633B-92BB-6527-4F9D-4F6A718C6302"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C18BD739-8C4B-C5FE-8183-721F266B06FC" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_USERS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_USERS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1DE549ED-CAAF-8E2A-46EB-84245FF99D3B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="05DFECAD-4FED-3E3C-A232-121CA3872A04" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UQ_USERS_CPF">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_USERS_CPF</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8826D902-A524-8530-F3C4-764A23ED57FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="03DC397B-83E8-30EF-DA6F-CFD4D873C6D3" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UQ_USERS_EMAIL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_USERS_EMAIL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2E0633B-92BB-6527-4F9D-4F6A718C6302"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

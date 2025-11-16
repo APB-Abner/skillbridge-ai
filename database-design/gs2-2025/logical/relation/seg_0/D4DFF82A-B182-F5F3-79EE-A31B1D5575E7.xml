@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_PERG_SKILL" directorySegmentName="seg_0" id="D4DFF82A-B182-F5F3-79EE-A31B1D5575E7">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>F56D1CD4-33CD-E8E6-C6CB-C3EDC291FED3</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>2801CCE6-5136-E828-F68A-BFD8EE9C0D72</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6F3F3DAF-7ECB-5D11-C815-32FABC393BC2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6E6AA6F9-96F5-0BC0-FC77-66CB716F1BF5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

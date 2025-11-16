@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MENTORIA_MENTOR" directorySegmentName="seg_0" id="C59DCAAC-F33A-9DB4-BB05-E7E0D7E18F72">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>A2BE728E-02BE-9D5C-3305-786BCA44F620</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>CE40065F-592B-4E79-AC1E-6D20CA63CBC6</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3526D206-6A89-AFFE-61EE-080587CC8159</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BC834A81-F124-83EA-22B0-D37C8D112778</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

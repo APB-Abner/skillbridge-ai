@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3AD4386F-C3BB-35D6-2FDB-6612C59F7499" containerWithKeyObject="5CBEFCD3-E49B-864D-3BCC-FCE5B6D8C978" localFKIndex="5ACF4D29-5C97-F722-EC50-F7739CC4A949" name="FK_RESP_PERGUNTA">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>FK_RESP_PERGUNTA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<referredTableLongName>RM558468.PERGUNTAS_DIAGNOSTICO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8B05BCAF-31F6-2E52-0EDB-A88BD427205E</referredTableID>
+<keyObject>92A7816C-5867-1C01-9645-63844AB2CC3F</keyObject>
+<referredKeyID>92A7816C-5867-1C01-9645-63844AB2CC3F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

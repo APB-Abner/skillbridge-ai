@@ -1,0 +1,200 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C5649DC-F210-421A-3286-53B0AA688095" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PROGRESSO_MODULO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PROGRESSO_MODULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B47F369F-D557-39AA-E99E-B5B5A28F7B88">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MATRICULA_ID" id="EA58C6EE-9F46-7767-7FC0-78EFD707D808">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>MATRICULA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="38354A6C-66FF-10A0-237A-A19297ADCD9B" referredColumn="CEF813DD-69E8-B03D-1CAF-E56E58FE191D"/>
+</associations>
+</Column>
+<Column name="MODULO_ID" id="9C92DFB7-F1DF-6D72-2CB0-93A521D6E24D">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>MODULO_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61F11FC0-8001-8AA7-312C-62ED1D1CC1ED" referredColumn="B6019964-E21F-ED68-7527-05F6CA1C412F"/>
+</associations>
+</Column>
+<Column name="STATUS" id="4D821ACF-EF5C-391E-B47C-E7A928F17840">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>STATUS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<constraintName>CK_PROG_STATUS</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;CONCLUIDO&apos;" description=""/>
+<valueDef value="&apos;EM_ANDAMENTO&apos;" description=""/>
+<valueDef value="&apos;NAO_INICIADO&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PERCENTUAL_CONCLUSAO" id="3A731090-1AB7-1038-72A7-4954BD572778">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>PERCENTUAL_CONCLUSAO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<constraintName>CK_PROG_PERCENTUAL</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>100</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="ULTIMA_ATUALIZACAO" id="CCE579F1-7BCC-171D-B247-74F697015AAF">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>PROGRESSO_MODULO</sourceObjSchema>
+<sourceObjName>ULTIMA_ATUALIZACAO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<defaultValue>SYSTIMESTAMP</defaultValue>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5988A262-CBF6-8988-BA10-69D746D14DD4" name="PK_PROGRESSO_MODULO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_PROGRESSO_MODULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B47F369F-D557-39AA-E99E-B5B5A28F7B88"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CCCCDC99-A885-A056-049F-40F50ABEE0B3" name="UK_PROG_MATRICULA_MODULO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_PROG_MATRICULA_MODULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA58C6EE-9F46-7767-7FC0-78EFD707D808"/>
+<colUsage columnID="9C92DFB7-F1DF-6D72-2CB0-93A521D6E24D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2B20D3DF-9E1C-FFA5-2CEE-A14345B76243" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_PROGRESSO_MODULO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_PROGRESSO_MODULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B47F369F-D557-39AA-E99E-B5B5A28F7B88"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="80D82E1B-750C-B377-3F19-03D6439219CB" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UK_PROG_MATRICULA_MODULO">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UK_PROG_MATRICULA_MODULO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA58C6EE-9F46-7767-7FC0-78EFD707D808"/>
+<colUsage columnID="9C92DFB7-F1DF-6D72-2CB0-93A521D6E24D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3CBCC14-6FAC-EF7F-B279-7FD855DDEA80" name="FK_PROG_MATRICULA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA58C6EE-9F46-7767-7FC0-78EFD707D808"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3BF16A0C-7E07-80B9-91BE-51768809DC44" name="FK_PROG_MODULO">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C92DFB7-F1DF-6D72-2CB0-93A521D6E24D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_MODULOS_TRILHA" directorySegmentName="seg_0" id="A74687B0-BF86-F93E-813E-260947D10AC2">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:59:38 UTC</createdTime>
+<generatorID>8BB18A97-EEB3-2259-66EE-B7EA91A89991</generatorID>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<engineerTo>
+<item key="A65D2879-03E7-5148-E0C8-FFE4443687F8" value="true"/>
+</engineerTo>
+<sourcePk>F98E70EF-D16A-47F5-5259-E78C94D31CEE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0E2B9591-ED19-A92C-F7C3-925D67802179</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>1BC93273-DB56-2884-3D43-5125369F59A6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3FDD1019-D311-6A6A-F1A9-FA6C4B8C02DB" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="SKILLS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>SKILLS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="A7C23B45-71EE-26BA-93E4-B2A44BA7DDC7">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SKILLS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="4F86D21B-2C5F-BFDC-A9BB-78F558D8B486">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SKILLS</sourceObjSchema>
+<sourceObjName>NOME</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="25ACA432-C703-31C8-D894-6798DD708F6F">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SKILLS</sourceObjSchema>
+<sourceObjName>DESCRICAO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>400 CHAR</dataTypeSize>
+<ownDataTypeParameters>400 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CATEGORIA" id="858C50FA-53AA-51CA-DD4C-7E749549E2CD">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>SKILLS</sourceObjSchema>
+<sourceObjName>CATEGORIA</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F0044DDE-C4C2-0D36-63C1-5682BECA2A97" name="PK_SKILLS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_SKILLS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7C23B45-71EE-26BA-93E4-B2A44BA7DDC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1696809C-C468-8299-A375-98D9A2343E05" name="UQ_SKILLS_NOME">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_SKILLS_NOME</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F86D21B-2C5F-BFDC-A9BB-78F558D8B486"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B457C9A-03D8-80C6-1892-29AA9F9EFAF0" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_SKILLS">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_SKILLS</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7C23B45-71EE-26BA-93E4-B2A44BA7DDC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CD0FE410-334D-6C68-FF5A-4798652B5F16" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="UQ_SKILLS_NOME">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>UQ_SKILLS_NOME</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F86D21B-2C5F-BFDC-A9BB-78F558D8B486"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

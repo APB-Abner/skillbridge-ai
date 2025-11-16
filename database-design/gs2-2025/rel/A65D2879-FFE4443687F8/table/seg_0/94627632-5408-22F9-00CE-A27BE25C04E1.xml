@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94627632-5408-22F9-00CE-A27BE25C04E1" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="TRILHA_SKILL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>TRILHA_SKILL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TRILHA_ID" id="246CE855-452B-B0DF-5F68-18F9CFE99DD1">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>TRILHA_SKILL</sourceObjSchema>
+<sourceObjName>TRILHA_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9D6F72E-C254-9C33-5ED6-6D4F07940E5B" referredColumn="B48D410B-6609-AC93-21B5-856E57CF7830"/>
+</associations>
+</Column>
+<Column name="SKILL_ID" id="B6B022AA-1522-1706-D1C7-8D98106BAD1A">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>TRILHA_SKILL</sourceObjSchema>
+<sourceObjName>SKILL_ID</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="37CECBD8-D566-71AA-3F7F-EAA164E568ED" referredColumn="A7C23B45-71EE-26BA-93E4-B2A44BA7DDC7"/>
+</associations>
+</Column>
+<Column name="NIVEL_ESPERADO" id="84469776-FE38-77EE-334C-D45A8B22AF23">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>TRILHA_SKILL</sourceObjSchema>
+<sourceObjName>NIVEL_ESPERADO</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<constraintName>CK_TRILHA_SKILL_NIVEL</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>100</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1FA16EF1-0240-D06A-8B77-303CD66EE384" name="PK_TRILHA_SKILL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_TRILHA_SKILL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="246CE855-452B-B0DF-5F68-18F9CFE99DD1"/>
+<colUsage columnID="B6B022AA-1522-1706-D1C7-8D98106BAD1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="97A359F7-421E-1C9D-FF9C-726F90C527CA" schemaObject="259471C6-84F8-6C93-2ED7-DC63BEC9011E" name="PK_TRILHA_SKILL">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>PK_TRILHA_SKILL</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:35 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="246CE855-452B-B0DF-5F68-18F9CFE99DD1"/>
+<colUsage columnID="B6B022AA-1522-1706-D1C7-8D98106BAD1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="24913B4B-B938-3236-D196-66FC54CDF456" name="FK_TS_SKILL">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6B022AA-1522-1706-D1C7-8D98106BAD1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BD16F411-EDFE-1CFC-E7BB-FB4C884E000F" name="FK_TS_TRILHA">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="246CE855-452B-B0DF-5F68-18F9CFE99DD1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

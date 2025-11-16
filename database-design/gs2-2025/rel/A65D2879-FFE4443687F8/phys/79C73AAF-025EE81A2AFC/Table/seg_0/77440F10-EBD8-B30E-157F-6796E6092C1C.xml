@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="MODULOS" directorySegmentName="seg_0" id="77440F10-EBD8-B30E-157F-6796E6092C1C">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:31 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<schemaObject>259471C6-84F8-6C93-2ED7-DC63BEC9011E</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>907893BB-32D5-D2D5-8577-65DDB1B9175A</segment>
+<tableSpace>C6E10E1C-A6BB-7417-CE3A-66DAAADC897E</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CARGA_HORARIA" id="36ACDCC7-FB49-2EEE-DF6C-5A84381FC3FD">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TRILHA_ID" id="73E8CDE9-E890-1418-48F9-E96C9DEFF836">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID" id="B6019964-E21F-ED68-7527-05F6CA1C412F">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITULO" id="F626F973-AE8D-FBE7-2BA3-8665084E3517">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DESCRICAO" id="FAC2736C-9941-A837-0CA0-7B1826F90ADE">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ORDEM" id="FE8CD111-9592-88A7-A042-5937F6A22504">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:33 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="UK_MODULOS_TRILHA_ORDEM" id="48DB19EB-2D16-7CAD-D9D3-7B25CF328A06">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<schemaObject>259471C6-84F8-6C93-2ED7-DC63BEC9011E</schemaObject>
+<segment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</segment>
+<tableSpace>C6E10E1C-A6BB-7417-CE3A-66DAAADC897E</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_MODULOS" id="86339160-977A-502D-9F58-0AFBBC30D19B">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:34 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<schemaObject>259471C6-84F8-6C93-2ED7-DC63BEC9011E</schemaObject>
+<segment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</segment>
+<tableSpace>C6E10E1C-A6BB-7417-CE3A-66DAAADC897E</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_MODULOS_TRILHA" id="598E578B-D6E8-3C54-FC0C-D93419E0538E">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_MODULOS" id="217414B0-A2F9-7F70-DA0B-0A31415B922C">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<segment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</segment>
+<tableSpace>C6E10E1C-A6BB-7417-CE3A-66DAAADC897E</tableSpace>
+<existingIndex>86339160-977A-502D-9F58-0AFBBC30D19B</existingIndex>
+<indexSegment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="UK_MODULOS_TRILHA_ORDEM" id="8BBCE515-83B2-8840-F959-8F4EA09CAF69">
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:55:47 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<segment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</segment>
+<tableSpace>C6E10E1C-A6BB-7417-CE3A-66DAAADC897E</tableSpace>
+<existingIndex>48DB19EB-2D16-7CAD-D9D3-7B25CF328A06</existingIndex>
+<indexSegment>E36AEDEC-28C7-8867-D4C1-BD001B1260C1</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A2BE728E-02BE-9D5C-3305-786BCA44F620" containerWithKeyObject="7C52D99F-F57B-00A5-FCB8-64443B479641" localFKIndex="657071F6-1BCC-17DB-88A7-589EDD10DB2B" name="FK_MENTORIA_MENTOR">
+<sourceConnName>FIAP</sourceConnName>
+<sourceObjSchema>RM558468</sourceObjSchema>
+<sourceObjName>FK_MENTORIA_MENTOR</sourceObjName>
+<createdBy>Adm</createdBy>
+<createdTime>2025-11-16 01:56:00 UTC</createdTime>
+<ownerDesignName>gs2-2025</ownerDesignName>
+<referredTableLongName>RM558468.USERS</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8263D225-5904-F1D1-E250-11277E3D474D</referredTableID>
+<keyObject>218A6D9F-8E5F-B7EF-5CF3-7DDDDA9C8A25</keyObject>
+<referredKeyID>218A6D9F-8E5F-B7EF-5CF3-7DDDDA9C8A25</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
